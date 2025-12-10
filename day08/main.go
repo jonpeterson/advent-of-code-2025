@@ -30,8 +30,6 @@ func main() {
 	}
 	defer file.Close()
 
-	lines := make([]string, 0)
-
 	// Gather boxes
 	boxes := make([]*Box, 0)
 	scanner := bufio.NewScanner(file)
@@ -40,7 +38,6 @@ func main() {
 		coords := strings.Split(line, ",")
 		box := boxFromCoords(coords)
 		boxes = append(boxes, box)
-		lines = append(lines, line)
 	}
 
 	// Gather all pairs
